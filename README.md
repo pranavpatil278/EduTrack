@@ -84,7 +84,7 @@ python app.py
 http://127.0.0.1:5000
 ```
 
- 6. 🔑 Default Login
+ ### 6. 🔑 Default Login
 
 For demonstration purposes, use the default administrator credentials:
 
