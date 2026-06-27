@@ -95,19 +95,19 @@ For demonstration purposes, use the default administrator credentials:
 ## 📸 Screenshots
 
 ### Login Page
-![Login](screenshots/login.png)
+![Login](./screenshots/login.png)
 
 ### Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](./screenshots/dashboard.png)
 
 ### Add Student
-![Add Student](screenshots/Addstudents.png)
+![Add Student](./screenshots/Addstudents.png)
 
 ### Attendance Management
-![Attendance](screenshots/attendance_management.png)
+![Attendance](./screenshots/attendance_management.png)
 
 ### Attendance Report
-![Attendance Report](screenshots/attendance_report.png)
+![Attendance Report](./screenshots/attendance_report.png)
 
 
 ## 📄 License
