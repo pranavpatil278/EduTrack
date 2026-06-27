@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Attendance History</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<style>
+
+body{
+background:#020617;
+color:white;
+font-family:Segoe UI;
+}
+
+.container{
+margin-top:40px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+border:none;
+padding:25px;
+border-radius:20px;
+}
+
+.table{
+color:white;
+}
+
+.table thead{
+background:#38bdf8;
+color:black;
+}
+
+form label{
+    color: white;
+    font-weight: 600;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h2 class="text-white">
+    {{ student.name }} Attendance History
+</h2>
+
+<div class="d-flex justify-content-between mb-3">
+
+    {% if prev_student %}
+    <a href="/attendance_history/{{ prev_student.id }}" class="btn btn-secondary">
+        ⬅ Previous
+    </a>
+    {% endif %}
+
+    {% if next_student %}
+    <a href="/attendance_history/{{ next_student.id }}" class="btn btn-secondary">
+        Next ➡
+    </a>
+    {% endif %}
+
+</div>
+
+<form method="GET" class="row mb-4">
+
+<div class="col-md-3">
+
+<label>Month</label>
+
+<select name="month" class="form-control">
+
+<option value="">All</option>
+
+{% for i in range(1,13) %}
+
+<option value="{{i}}"
+{% if month==i %}selected{% endif %}>
+
+{{i}}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+<div class="col-md-3">
+
+<label>Year</label>
+
+<input
+type="text"
+name="year"
+value="{{year or ''}}"
+class="form-control"
+maxlength="4"
+pattern="\d{4}"
+title="Enter 4 digit year only">
+
+</div>
+
+<div class="col-md-3 mt-4">
+
+<button class="btn btn-primary">
+
+Search
+
+</button>
+
+</div>
+
+</form>
+
+<hr>
+
+<h5 class="text-white">Total Days : {{ total }}</h5>
+<h5 class="text-white">Present : {{ present }}</h5>
+<h5 class="text-white">Absent : {{ absent }}</h5>
+<h5 class="text-white">Attendance : {{ percentage }}%</h5>
+
+<hr>
+
+<table class="table table-bordered">
+
+<thead>
+<tr>
+    <th>Date</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for record in records %}
+
+<tr>
+
+    <td>
+        {{ record.attendance_date.strftime("%d-%m-%Y") }}
+    </td>
+
+    <td>
+        {{ record.status }}
+    </td>
+
+    <td>
+        <form action="/delete_attendance/{{ record.id }}" method="POST">
+            <button type="submit" class="btn btn-danger btn-sm">
+                Delete
+            </button>
+        </form>
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<a href="/attendance_report"
+class="btn btn-info">
+
+Back
+
+</a>
+
+</div>
+
+</div>
+
+<!-- ADD THIS RIGHT ABOVE </body> -->
+<script>
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "ArrowLeft") {
+        {% if prev_student %}
+        window.location.href = "/attendance_history/{{ prev_student.id }}";
+        {% endif %}
+    }
+
+    if (event.key === "ArrowRight") {
+        {% if next_student %}
+        window.location.href = "/attendance_history/{{ next_student.id }}";
+        {% endif %}
+    }
+
+});
+</script>
+
+</body>
+
+</html>

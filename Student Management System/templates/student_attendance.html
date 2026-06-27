@@ -1,0 +1,24 @@
+<table class="table">
+
+<tr>
+<th>Date</th>
+<th>Status</th>
+</tr>
+
+{% for record in records %}
+
+<tr>
+
+<td>
+{{record.attendance_date}}
+</td>
+
+<td>
+{{record.status}}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>

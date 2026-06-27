@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Attandence Report</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<style>
+
+body{
+
+margin:0;
+
+background:
+radial-gradient(circle at top,#1e1b4b,transparent 35%),
+radial-gradient(circle at bottom,#064e3b,transparent 35%),
+#020617;
+
+font-family:'Segoe UI';
+
+color:white;
+
+}
+
+.container-box{
+
+padding:40px;
+
+}
+
+.glass{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border-radius:25px;
+
+padding:25px;
+
+border:1px solid rgba(255,255,255,.1);
+
+box-shadow:0 20px 50px rgba(0,0,0,.4);
+
+}
+
+.title{
+
+font-size:35px;
+
+font-weight:800;
+
+background:
+linear-gradient(
+90deg,#38bdf8,#a855f7
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+.table{
+
+color:white;
+
+}
+
+.table thead{
+
+background:#38bdf8;
+
+color:#020617;
+
+}
+
+.table tbody tr:hover{
+
+background:rgba(255,255,255,.08);
+
+}
+
+.percent{
+
+font-weight:bold;
+
+color:#22c55e;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container-box">
+
+<div class="glass">
+
+<div class="title">
+📊 Attendence Report
+</div>
+
+<p class="text-secondary">
+Attendance Report for {{ month_name }} {{ year }}
+</p>
+
+<table class="table">
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>History</th>
+<th>Attendance %</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for item in report %}
+
+<tr>
+
+<td>{{item.student.id}}</td>
+
+<td>{{item.student.name}}</td>
+
+<td>{{item.student.course}}</td>
+
+<td>
+    <a href="/attendance_history/{{ item.student.id }}"
+       class="btn btn-info btn-sm">
+       View History
+    </a>
+</td>
+
+<td class="percent">
+
+{{item.percentage}}%
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<a href="/attendance"
+class="btn btn-info">
+
+Back Attendance
+
+</a>
+
+<a href="/dashboard"
+class="btn btn-outline-light">
+
+Dashboard
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
