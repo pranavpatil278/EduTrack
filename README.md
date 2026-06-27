@@ -95,7 +95,7 @@ For demonstration purposes, use the default administrator credentials:
 ## 📸 Screenshots
 
 ### Login Page
-![Login](./Screenshots/login.png)
+![Login](Student Management System/Screenshots/login.png)
 
 ### Dashboard
 ![Dashboard](./Screenshots/dashboard.png)
