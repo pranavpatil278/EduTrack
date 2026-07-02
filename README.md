@@ -92,24 +92,6 @@ For demonstration purposes, use the default administrator credentials:
 - **Password:** `admin@123`
 
 
-## 📸 Screenshots
-
-### Login Page
-![Login](Student Management System/Screenshots/login.png)
-
-### Dashboard
-![Dashboard](./Screenshots/dashboard.png)
-
-### Add Student
-![Add Student](./Screenshots/Addstudents.png)
-
-### Attendance Management
-![Attendance](./Screenshots/attendance_management.png)
-
-### Attendance Report
-![Attendance Report](./Screenshots/attendance_report.png)
-
-
 ## 📄 License
 
 This project is developed for educational and learning purposes.
